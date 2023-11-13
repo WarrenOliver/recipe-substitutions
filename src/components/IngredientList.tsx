@@ -1,29 +1,20 @@
-import React, { useState } from 'react';
+const BlogList = ({ blogs, title }) => {
 
-
-const IngredientList = () => {
-    const [visibleDetails, setVisibleDetails] = useState({});
-
-    const toggleDetails = (ingredient) => {
-        setVisibleDetails(prevDetails => ({
-            ...prevDetails,
-            [ingredient]: !prevDetails[ingredient]
-        }));
-    };
-
-    return (
-        <div className="ingredient-list">
-            <div className="ingredient" onClick={() => toggleDetails('ingredient1')}>
-                <h2>Ingredient 1</h2>
-                {visibleDetails.ingredient1 && <p className="details">Details about Ingredient 1...</p>}
-            </div>
-            <div className="ingredient" onClick={() => toggleDetails('ingredient2')}>
-                <h2>Ingredient 2</h2>
-                {visibleDetails.ingredient2 && <p className="details">Details about Ingredient 2...</p>}
-            </div>
-            {/* Add more ingredients as needed */}
+  return (
+    <div className="blog-list">
+      <h1>{title}</h1>
+      {blogs.map((blog) => (
+        <div className="blog-preview" key={blog.id}>
+          <Link className="blog-links" to={`/blogs/${blog.id}`}>
+            <h2>{blog.title}</h2>
+            </Link>
+          <div>Written by: {blog.author}</div>
+          <div>Blog Preview: {blog.body}</div>
+          
         </div>
-    );
-}
+      ))}
+    </div>
+  );
+};
 
-export default IngredientList;
+export default BlogList;
