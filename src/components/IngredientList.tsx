@@ -1,15 +1,14 @@
-const BlogList = ({ blogs, title }) => {
+const IngredientList = ({ ingredients, title }) => {
 
+  
   return (
-    <div className="blog-list">
+    <div className="ingredient-list">
       <h1>{title}</h1>
-      {blogs.map((blog) => (
-        <div className="blog-preview" key={blog.id}>
-          <Link className="blog-links" to={`/blogs/${blog.id}`}>
-            <h2>{blog.title}</h2>
-            </Link>
-          <div>Written by: {blog.author}</div>
-          <div>Blog Preview: {blog.body}</div>
+      {ingredients.map((ingredient) => (
+        <div className="ingredient-preview" key={ingredient.id}>
+            <h2>{ingredient.title}</h2>
+          {/* <div>Number of Substitutions: {ingredient.number}</div> */}
+          {/* <button className="ingredient-button">Click to see substitutions:</button> */}
           
         </div>
       ))}
@@ -17,4 +16,4 @@ const BlogList = ({ blogs, title }) => {
   );
 };
 
-export default BlogList;
+export default IngredientList;

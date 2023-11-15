@@ -1,12 +1,12 @@
-import IngredientList from "./components/IngredientList";
 import Navbar from "./components/Navbar";
-
+import Home from './components/Home';
+2
 const App = () => {
   
   return (
     <div className="app">
       <Navbar />
-      <IngredientList />
+      <Home />
     </div>
   );
 }
