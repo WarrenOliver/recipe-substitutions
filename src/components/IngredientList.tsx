@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 const IngredientList = ({ ingredients, title }) => {
 
   
@@ -6,10 +7,9 @@ const IngredientList = ({ ingredients, title }) => {
       <h1>{title}</h1>
       {ingredients.map((ingredient) => (
         <div className="ingredient-preview" key={ingredient.id}>
+          <Link className="ingredient-links" to={`/ingredients/${ingredient.id}`}>
             <h2>{ingredient.title}</h2>
-          {/* <div>Number of Substitutions: {ingredient.number}</div> */}
-          {/* <button className="ingredient-button">Click to see substitutions:</button> */}
-          
+          </Link>
         </div>
       ))}
     </div>

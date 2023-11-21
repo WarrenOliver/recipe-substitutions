@@ -1,16 +1,24 @@
 import { useParams } from "react-router-dom";
-import IngredientList from "./IngredientList";
+import useFetch from "./UseFetch";
 
 
-const SingleIngredient = ({ ingredients }) => {
+const SingleIngredient = () => {
     const { id } = useParams()
-    const parcedID = parseInt(id)
-    const ingredient = ingredients[parcedID]
+    const {data: ingredient, isPending, error} = useFetch('http://localhost:8000/ingredients/'+ id)
 
     return (
         <div className="single-ingredients-details">
-            <h1>{ ingredient.title }</h1>
-            <p>{ ingredient.body }</p>
+            {isPending && <div>Loading...</div>}
+            {error && <div>{error}</div>}
+            {ingredient && (
+                <article>
+                    <h2>{ ingredient.title }</h2>
+                    <div>
+                        { ingredient.body }
+                    </div>
+                </article>
+            )}
+
         </div>
     );
 }
