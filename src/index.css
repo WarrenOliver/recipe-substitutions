@@ -1,73 +1,87 @@
-.ingredient-list {
-  max-width: 600px;
-  margin: 0 auto;
-  padding: 20px;
-  background-color: #f9f9f9;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  font-family: 'Helvetica Neue', sans-serif;
+/* Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* Consistent box-sizing */
 }
 
-.ingredient-list h1 {
-  text-align: center;
-  color: #2c3e50;
-  margin-bottom: 20px;
-  font-size: 28px;
+.app {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* Ingredient List Styles */
+.ingredient-list {
+  font-family: 'Arial', sans-serif;
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px;
+  text-align: left; /* Text aligned to the left */
+  background-color: #fafafa
+}
+
+.ingredient-list-title {
+    font-family: 'Arial', sans-serif;
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    text-align: left;
+    color: #333;
+    font-size: 2em;
+    margin-bottom: 30px;
 }
 
 .ingredient-preview {
-  background: #fff;
   margin-bottom: 20px;
-  padding: 20px;
-  border-radius: 4px;
-  border: 1px solid #ddd;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.ingredient-preview h2 {
-  margin-top: 0;
-  margin-bottom: 0;
-  color: #4a69bd;
-  font-size: 22px;
-}
-
-.ingredient-preview div {
-  color: #555;
-  margin: 5px 0;
-  font-size: 16px;
+  padding: 15px;
+  background-color: #fafafa; /* Very light background for each list item */
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transitions */
 }
 
 .ingredient-preview:hover {
-  /* transform: translateY(1px); Slight raise effect on hover */
-  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.15); Enhanced shadow on hover
+  background-color: #f5f5f5;
+  border-bottom: 1px solid #4a69bd;
 }
 
-.ingredient-button {
-  background-color: #4a69bd;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 4px;
-  font-family: 'Helvetica Neue', sans-serif;
-  font-size: 16px;
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.3s ease;
-  margin-top: 20px;
+.ingredient-links {
+  color: #4a69bd;
+  text-decoration: none;
+  transition: color 0.3s ease;
 }
 
-.ingredient-button:hover {
-  background-color: #3c6382; /* Darker shade on hover */
-  transform: translateY(-2px); /* Slight raise effect on hover */
+.ingredient-links h2 {
+  font-size: 1.6em; /* Reduced font size for ingredient titles */
+  margin: 10px 0;
 }
 
-.ingredient-button:focus {
-  outline: none; /* Removes default focus outline */
-  box-shadow: 0 0 0 2px rgba(74, 105, 189, 0.5); /* Subtle focus outline */
+.ingredient-links:hover {
+  color: #3c6382;
 }
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .ingredient-list {
+    padding: 15px;
+  }
+
+  .ingredient-list h1 {
+    font-size: 1.8em; /* Smaller font size for mobile */
+  }
+
+  .ingredient-preview {
+    padding: 8px;
+  }
+
+  .ingredient-links h2 {
+    font-size: 1.4em; /* Smaller font size for ingredient titles on mobile */
+  }
+}
+
 
 .navbar {
-  width: 100%; /* Full width */
-  /* padding: 2px 0; Reduced padding for less thickness */
+  width: 100%;
+  height: 4rem;
   background-color: #4a69bd; /* Consistent color theme */
   color: white;
   display: flex;
@@ -80,7 +94,7 @@
 }
 
 .navbar h1 {
-  margin-left: 20px; /* Spacing from the left edge */
+  margin-left: 20px;
   color: white;
   font-size: 24px;
 }
@@ -102,4 +116,58 @@
 
 .navbar a:hover {
   background-color: #3c6382; /* Slight change on hover */
+}
+
+
+/* SingleIngredients Component */
+
+.single-ingredients-details {
+  font-family: 'Arial', sans-serif;
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px;
+  text-align: center;
+}
+
+.single-ingredients-details article {
+  border-bottom: 1px solid #e1e1e1;
+  padding-bottom: 20px;
+  margin-bottom: 40px; /* Increased bottom margin */
+}
+
+.single-ingredients-details h2 {
+  color: #333;
+  font-size: 2em;
+  margin-bottom: 10px;
+}
+
+.single-ingredients-details div {
+  color: #666;
+  font-size: 1em;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.single-ingredients-details button {
+  background-color: #4a69bd;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+  margin: 0 10px;
+  margin-top: 40px; /* Added top margin to push buttons down */
+}
+
+.single-ingredients-details button:hover {
+  background-color: #3c6382;
+  transform: scale(1.05);
+}
+
+.loading, .error {
+  color: #e74c3c;
+  font-size: 1.2em;
+  margin: 20px 0;
 }
